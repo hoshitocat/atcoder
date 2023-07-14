@@ -16,7 +16,10 @@ int main()
 
   sort(vec.begin(), vec.end(), greater<int>());
 
-  if (N == 1) return 1;
+  if (N == 1) {
+    cout << 1 << endl;
+    return 0;
+  }
 
   int layers = 1;
   for (int i = 1; i < N; i++) {
