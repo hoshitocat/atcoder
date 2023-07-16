@@ -8,5 +8,9 @@ int main()
   int Y = 0;
   cin >> N >> Y;
 
+  int x = 0;
+  int y = 0;
+  int z = 0;
+
   cout << N << endl;
 }
