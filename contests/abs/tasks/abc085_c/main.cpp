@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 
 using namespace std;
 
@@ -12,13 +13,13 @@ int main()
   const int y = 5000;
   const int z = 1000;
 
-  for (int a = 0; a*x <= Y; a++) {
-    for (int b = 0; b*y <= Y; b++) {
-      for (int c= 0; c*z <= Y; c++) {
-        if ((Y == (a*x + b*y + c*z)) && (N == a+b+c)) {
-          cout << a << " " << b << " " << c << endl;
-          return 0;
-        }
+  for (int xn = 0; xn <= N; xn++) {
+    for (int yn = 0; yn <= N-xn; yn++) {
+      int zn = (N - xn - yn);
+      int sum = x*xn + y*yn + z*zn;
+      if (sum == Y) {
+        cout << xn << " " << yn << " " << zn << endl;
+        return 0;
       }
     }
   }
