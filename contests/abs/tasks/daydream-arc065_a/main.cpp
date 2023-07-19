@@ -4,39 +4,31 @@ using namespace std;
 
 int main()
 {
-  string s;
-  cin >> s;
+  string str;
+  cin >> str;
 
-  const string DREAMER = "dreamer";
-  const string ERASER = "eraser";
-  const string DREAM = "dream";
-  const string ERASE = "erase";
+  string words[4] = {"dreamer", "eraser", "dream", "erase"};
 
   bool flag = false;
-  while (5 <= s.size()) {
-    int size = DREAMER.size();
-    if (s.substr(0, size) == DREAMER) {
-      s = s.substr(0, size);
+  while (5 <= str.size()) {
+    flag = false;
+    for (int i = 0; i < 4; i++) {
+      string s = words[i];
+      if (str.substr(0, s.size()) == s) {
+        str = str.substr(s.size(), str.size());
+        flag = true;
+        break;
+      }
     }
 
-    size = ERASER.size();
-    if (s.substr(0, size) == ERASER) {
-      s = s.substr(0, size);
+    if (!flag) {
+      break;
     }
-
-    size = DREAM.size();
-    if (s.substh(0, size) == DREAM) {
-      s = s.substr(0, size);
-    }
-
-    size = ERASE.size();
-    if (s.substr(0, size) == ERASE) {
-      s = s.substr(0, size);
-    }
-
-    cout << "NO" << endl;
-    return;
   }
 
-  cout << 
+  if (flag) {
+    cout <<  "YES" << endl;
+  } else {
+    cout << "NO" << endl;
+  }
 }
