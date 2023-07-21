@@ -1,40 +1,22 @@
 #include<iostream>
+#include<regex>
 
 using namespace std;
 
-string words[4] = {"dreamer", "eraser", "dream", "erase"};
-
-bool find(string* str)
-{
-  if (str->size() == 0) {
-    return true;
-  }
-
-  if (str->size() < 5) {
-    return false;
-  }
-
-  for (int i = 0; i < 4; i++) {
-    string s = words[i];
-    if (str->substr(0, s.size()) == s) {
-      string remain = str->substr(s.size(), str->size());
-      if (find(&remain)) {
-        return true;
-      }
-    }
-  }
-
-  return false;
-}
+const int words_length = 4;
+const string words[words_length] = {"eraser", "erase", "dreamer", "dream"};
 
 int main()
 {
   string str;
   cin >> str;
 
-  bool flag = find(&str);
+  for (int i = 0; i < words_length; i++) {
+    string w = words[i];
+    str = regex_replace(str, regex(w), "");
+  }
 
-  if (flag) {
+  if (str.size() == 0) {
     cout <<  "YES" << endl;
   } else {
     cout << "NO" << endl;
