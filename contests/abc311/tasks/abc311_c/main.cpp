@@ -16,8 +16,8 @@ int main()
   if (N == 2) {
     cout << 2 << endl;
     cout << arr[0] << " " << arr[1] << endl;
+    return 0;
   }
-
 
   int loop_start = 0;
   int p = arr[0];
