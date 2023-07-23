@@ -1,46 +1,38 @@
 #include<iostream>
+#include<vector>
+#include<map>
 
 using namespace std;
 
+map<int, int> mp;
+int check(int a, vector<bool> &checks)
+{
+  if (checks[a]) return a;
+  checks[a] = true;
+  return check(mp[a], checks);
+}
+
 int main()
 {
-  int N;
-  cin >> N;
-  int arr[N];
-  bool visited[N];
-  for (int i = 0; i < N; i++) {
-    cin >> arr[i];
-    visited[i] = false;
+  int n, t; cin >> n;
+  for (int i = 0; i < n; i++) {
+    cin >> t;
+    mp[i] = t-1;
   }
 
-  if (N == 2) {
-    cout << 2 << endl;
-    cout << arr[0] << " " << arr[1] << endl;
-    return 0;
+  vector<bool> vec(n);
+  int cnt = 1;
+  int start = check(0, vec);
+  int p = start;
+  while (mp[p] != start) {
+    cnt++;
+    p = mp[p];
   }
 
-  int loop_start = 0;
-  int p = arr[0];
-  while (1) {
-    if (visited[p]) {
-      loop_start = p;
-      break;
-    }
-
-    visited[p] = true;
-    p = arr[p-1];
+  cout << cnt << endl;
+  for (int i = 0; i < cnt; i++) {
+    cout << mp[start]+1 << " ";
+    start = mp[start];
   }
-
-  string result = to_string(loop_start);
-  int next = arr[loop_start-1];
-  int count = 1;
-  while (next != loop_start) {
-    count++;
-    result += " ";
-    result += to_string(next);
-    next = arr[next-1];
-  }
-
-  cout << count << endl;
-  cout << result << endl;
+  cout << endl;
 }
