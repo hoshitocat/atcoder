@@ -21,5 +21,11 @@ int main()
   cout << q.front().first << endl;
   while (!q.empty()) {
     pair<int, int> p = q.pop();
+
+    if (seen.find(p) != seen.end()) continue;
+    seen.insert(p);
+
+    for (int i = 0; i < 4; i++) {
+    } 
   }
 }
