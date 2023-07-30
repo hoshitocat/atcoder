@@ -25,7 +25,9 @@ int main()
     pair<int, int> p = q.front();
     q.pop();
 
-    if (seen.find(p) != seen.end()) continue;
+    if (seen.find(p) != seen.end()) {
+      continue;
+    }
     seen.insert(p);
 
     for (int i = 0; i < 4; i++) {
@@ -45,11 +47,12 @@ int main()
   int result = 0;
   for (string x : grid) {
     for (char y : x) {
-      if (y == '1') result += 1;
+      if (y == '1') {
+        result += 1;
+      }
     }
   }
 
   cout << result << endl;
-
   return 0;
 }
