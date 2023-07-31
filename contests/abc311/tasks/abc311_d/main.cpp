@@ -20,7 +20,6 @@ int main()
 
   set<pair<int, int>> seen;
 
-  cout << q.front().first << endl;
   while (!q.empty()) {
     pair<int, int> p = q.front();
     q.pop();
