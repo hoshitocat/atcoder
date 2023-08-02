@@ -18,9 +18,21 @@ int main()
     grid[x-1][y-1] = 1;
   }
 
+  int count = 0;
+  for (int x = 0; x < X; x++) {
+    for (int y = 0; y < Y; y++) {
+      if (grid[x][y] == 0)
+        count++;
+    }
+  }
+
+
   for (int x = 0; x < X; x++) {
     for (int y = 0; y < Y; y++) {
       cout << grid[x][y] << endl;
     }
   }
+
+  cout << count << endl;
+  return 0;
 }
