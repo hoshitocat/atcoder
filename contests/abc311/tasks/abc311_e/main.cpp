@@ -21,15 +21,14 @@ int main()
   int count = 0;
   for (int x = 0; x < X; x++) {
     for (int y = 0; y < Y; y++) {
-      if (grid[x][y] == 0)
+      if (grid[x][y] == 0) {
         count++;
-    }
-  }
 
-
-  for (int x = 0; x < X; x++) {
-    for (int y = 0; y < Y; y++) {
-      cout << grid[x][y] << endl;
+        for (int i = 1; x+i < X && y+i < Y; i++) {
+          if (grid[x+i][y+i] == 0)
+            count++;
+        }
+      }
     }
   }
 
