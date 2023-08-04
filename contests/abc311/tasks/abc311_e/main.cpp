@@ -6,7 +6,7 @@ int main()
 {
   int X, Y, N; cin >> X >> Y >> N;
 
-  int grid[X][Y];
+  static int grid[3000][3000];
   for (int x = 0; x < X; x++) {
     for (int y = 0; y < Y; y++) {
       grid[x][y] = 0;
@@ -18,7 +18,7 @@ int main()
     grid[x-1][y-1] = 1;
   }
 
-  int count = 0;
+  long count = 0;
   for (int x = 0; x < X; x++) {
     for (int y = 0; y < Y; y++) {
       if (grid[x][y] == 0) {
