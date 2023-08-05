@@ -1,37 +1,30 @@
 #include<iostream>
+#include<algorithm>
 
 using namespace std;
 
 int main()
 {
+  const int max = 3001;
+  static int dp[max][max];
+  static int hole[max][max];
+
   int X, Y, N; cin >> X >> Y >> N;
-
-  static int grid[3000][3000];
-  for (int x = 0; x < X; x++) {
-    for (int y = 0; y < Y; y++) {
-      grid[x][y] = 0;
-    }
-  }
-
   for (int n = 0; n < N; n++) {
-    int x, y; cin >> x >> y;
-    grid[x-1][y-1] = 1;
+    int x, y;
+    cin >> x >> y;
+    hole[x][y] = 1;
   }
 
-  long count = 0;
-  for (int x = 0; x < X; x++) {
-    for (int y = 0; y < Y; y++) {
-      if (grid[x][y] == 0) {
-        count++;
-
-        for (int i = 1; x+i < X && y+i < Y; i++) {
-          if (grid[x+i][y+i] == 0)
-            count++;
-        }
-      }
+  long cnt = 0;
+  for (int i = 1; i <= X; i++) {
+    for (int j = 1; j <= Y; j++) {
+      if (hole[i][j])
+        continue;
+      dp[i][j] = min({dp[i-1][j], dp[i][j-1], dp[i-1][j-1]})+1;
+      cnt += dp[i][j];
     }
   }
 
-  cout << count << endl;
-  return 0;
+  cout << cnt << endl;
 }
