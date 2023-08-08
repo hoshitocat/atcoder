@@ -22,8 +22,7 @@ int main()
     }
   }
 
+  vector<long long> dp(m+1, 0);
+  dp[m] = 1;
   // TODO
-  for (int n = 0; n < N; n++) {
-    cout << s[n] << endl;
-  }
 }
