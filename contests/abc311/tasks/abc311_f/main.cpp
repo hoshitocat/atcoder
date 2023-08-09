@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#define mod 998244353
 
 using namespace std;
 
@@ -24,5 +25,11 @@ int main()
 
   vector<long long> dp(m+1, 0);
   dp[m] = 1;
-  // TODO
+  for (int c=-m+1; c <= n-1; c++) {
+    for (int j=m-1; j >= 0; j--) {
+      dp[j] += dp[j+1];
+      dp[j] %= mod;
+    }
+    // WIP
+  }
 }
