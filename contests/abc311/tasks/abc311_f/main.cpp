@@ -30,6 +30,13 @@ int main()
       dp[j] += dp[j+1];
       dp[j] %= mod;
     }
-    // WIP
+    for (int j = 0; j < m; j++) {
+      int i = j + c;
+      if (i < 0) 
+        dp[j] = 0;
+      else if (i >= n || s[i][j] == '#')
+        dp[j+1] = 0;
+    }
   }
+  // WIP
 }
